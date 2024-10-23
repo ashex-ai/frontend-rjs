@@ -26,7 +26,7 @@ const Login = ({ setAuth }) => {
 
     // Simulate an API call (delayed response)
     setTimeout(() => {
-      if (username === "admin" && password === "password") {
+      if (username === "asyiq" && password === "password") {
         setAuth(true);
         navigate("/");
       } else {
