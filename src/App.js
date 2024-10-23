@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Login from './pages/Login/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        {/* Only display Navbar if user is authenticated */}
+        {isAuthenticated && <Navbar isAuth={isAuthenticated} setAuth={setIsAuthenticated} />}
+        
+        <Routes>
+          {/* Public Route: Login */}
+          <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
+          
+          {/* Protected Routes */}
+          <Route path="/" element={<ProtectedRoute isAuth={isAuthenticated}><Home /></ProtectedRoute>} />
+          <Route path="/about" element={<ProtectedRoute isAuth={isAuthenticated}><About /></ProtectedRoute>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

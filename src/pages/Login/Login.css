@@ -1,0 +1,97 @@
+/* Hide scrollbar for the login container */
+.login-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the start (left) */
+    align-items: center;         /* Vertically centers the items */
+    height: 100vh;
+    padding-left: 20px;         /* Adds some space from the left edge */
+    overflow: hidden;           /* Hide scrollbar on overflow */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Hide scrollbar specifically for webkit browsers (Chrome, Safari) */
+  .login-container::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar for width */
+    height: 0; /* Hide scrollbar for height */
+  }
+  
+  /* Optional: Add a semi-transparent overlay for better readability */
+  .login-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with opacity */
+    z-index: -1; /* Place behind the form */
+  }
+  
+  /* Style the login form */
+  .login-form {
+    background-color: #ffffff;
+    padding: 90px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
