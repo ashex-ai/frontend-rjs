@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, } from '@mui/material';
 import "./Login.css";
 import loginBackground from '../../assets/images/login-background.jpg'; // Adjust the path as needed
 
@@ -67,9 +68,19 @@ const Login = ({ setAuth }) => {
           />
         </div>
 
-        <button type="submit" className="login-button" disabled={isLoading}>
+        {/* <Button type="submit" className="login-button" disabled={isLoading}>
           {isLoading ? "Logging in..." : "Login"}
-        </button>
+        </Button> */}
+        <Button
+          fullWidth
+          disabled={isLoading}
+          type="submit"
+          variant="contained"
+          color="primary"
+          style={{ marginTop: '20px' }}
+        >
+          {isLoading ? "Logging in..." : "Login"}
+        </Button>
       </form>
     </div>
   );
